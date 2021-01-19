@@ -1,0 +1,47 @@
+Things to note:
+
+To build a full stack application we require both a back(server) and front(client) end.
+
+
+This is the server side of the application. Previously we worked in the client-side in Gold Badge.
+    The server accepts and responds to client requests.
+    The client accesses a service/database made available by the server.
+
+
+To build out a functioning server in this module we use:
+
+    Node - (Node.js)An open source server environment, allows us to write server-side applications that executes
+        JavaScript code outside a web browser.  
+
+    Express - Back end application framework for Node.js, provides server-side logic for applications to allow 
+        routing and processing of HTTP requests.
+
+    Sequelize - A promise based ORM(Object Relation Mapping), allows communication between the server application   
+        and the database. It helps us build models to map our database.
+
+    PostgreSQL - An open source object-relational database system; 
+        PgAdmin is it's graphical user interface(GUI), a simple database interface to view our stored information in PostgreSQL.
+
+    Postman - An API client that allows us to create and read HTTP/s requests. Basically used as sudo front end to 
+        test our server endpoints and database connection.
+
+        Postman/Client side
+            |    
+            |      < The client makes a request to the server, waits for delivery, and then uses what's received.
+            |      < Uses Express to create HTTP requests and responses
+            |
+        Server Side/API
+            |
+            |      < The server manages and calls the information from the database to deliver to the client.
+            |      < Uses Sequelize to communicate with PostgreSQL easily 
+            |
+        PostgreSQL/Database
+
+
+To begin outfitting our server, we need to pull in our dependencies.
+    - We use npm as our package manager.
+    - In the terminal we must navigate to our server folder to run any commands for installations or starting the server.
+    - package.json is where our dependencies and their version # is held/read by npm.
+    - Comments cannot be made in our package.json file
+    - After making any dependency changes, be sure to run: npm update
+    - Directions for initializing npm: https://elevenfifty.instructure.com/courses/547/modules/items/39265

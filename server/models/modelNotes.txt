@@ -1,0 +1,11 @@
+Models - Taken from Module 7.1
+
+Coding models are usually considered to be representations of the data being handled. Models can do the following:
+
+    1. Represent the data being stored in the database.
+
+    2. Dictate the types of data that will be stored (string, boolean, integer etc).
+
+    3. Handle some basic business logic in an application, such as a character limit for a string being stored in the db, formatting for date and time details, and many other things that shape the data in the database.
+
+    4. Used by the controller to handle logic.

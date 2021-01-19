@@ -1,0 +1,26 @@
+Controllers - Taken from Module 7.1
+
+It's good to think of the controller as something that handles the heavier logic in the application. A controller is usually a method or methods that will handle some or all of the following things:
+
+    1. Receiving the incoming request depending on the route.
+
+    2. Processing the type of incoming request: GET, POST, PUT, DELETE.
+
+    3. Collecting the data from the incoming request.
+
+    4. Working with the model to ensure that the requested data matches the types in the model and the database.
+
+    5. Creating, updating, reading, or deleting objects in the database.
+
+    6. Sending off the response for the incoming request.
+
+
+Express.Router() object methods:
+
+    post() - Create - allows users to create a new record/resource in the database
+
+    get() - Read - retrieves a record/resource
+    
+    put() - Update - allows modification(edit) of existing record/resource
+
+    delete() - Delete - deletes/destroys existing record/resource
