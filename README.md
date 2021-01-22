@@ -16,5 +16,6 @@ In order to run this code on your local machine AFTER cloning it from GitHub:
   - change 'YOUR_PASSWORD_HERE' to your personal Postgres password on line 9 in db.js
   - have a database titled 'journal-walkthrough' created in PgAdmin to connect to
 
+Due to the plethora of comments, viewing files in a larger width will help ease reading the code and notes. 
 
 Feedback is always welcome!
