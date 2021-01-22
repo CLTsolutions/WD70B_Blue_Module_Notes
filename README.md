@@ -1,6 +1,6 @@
 # WD70B Blue Module Notes
 
-An in depth note set for module code in the WD70B Blue Badge Node Modules. Use this tool to help clear up any confusion on certain segments or files within the server.
+An in depth note set for module code in the WD70B Blue Badge Node Modules to detail certain segments and files within the server.
 
 The information commented out alongside the code is from the Canvas modules and some good ol' fashioned Googling. 
 
