@@ -16,8 +16,11 @@ module.exports = (sequelize, DataTypes) => {
             // optional property that means all data has to be unique with no duplicates
             unique: true
         },
+        // object of the define method, creates title of data column
         password: {
+            // see above notes on line 12
             type: DataTypes.STRING,
+            // see above notes on line 14
             allowNull: false
         },
     })

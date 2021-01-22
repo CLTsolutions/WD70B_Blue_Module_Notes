@@ -6,7 +6,7 @@ const Sequelize = require('sequelize');
     // & use the constructor to make a new Sequelize object with your information 
     // 1:Name of db table to connect to, 2:Username for the db, 3:Password for the db
     //                         (          1          ,     2     ,      3
-const sequelize = new Sequelize('journal-walkthrough', 'postgres', 'InCaseYouWereWondering', {
+const sequelize = new Sequelize('journal-walkthrough', 'postgres', 'YOUR_PASSWORD_HERE', {
     // host points to the local port being used
     host: 'localhost',
     // identifies the QL dialect being used
@@ -27,4 +27,4 @@ sequelize.authenticate().then(
 );
 
 //Exports the module to be used/accessed by other files
-module.exports = sequelize;
+module.exports = sequelize; 

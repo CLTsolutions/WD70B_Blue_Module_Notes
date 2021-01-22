@@ -20,10 +20,11 @@ router.post('/create', function (req, res) {
         // 1: Left side of the object needs to match the column/object title specified in our model
         // 2: Right side is the request(req), body where data is held, user(property of body), and email/password(properties of user)
             // req.body is middleware provided by Express to append two properties or key-value pairs to it
+        // 3: Add bcrypt hashSync method to take in the string value of what to make secure and the number of times we want it salted (13x's)
         //(1)         (2)
         email: req.body.user.email,
-        //  (1)        (2)
-        password: req.body.user.password
+        //  (1)        (3)                 (2)
+        password: bcrypt.hashSync(req.body.user.password, 13)
     })
         // Because this function returns a Promise, .then is used to capture/show the success of the request 
         .then(
@@ -63,21 +64,35 @@ router.post('/login', function(req, res) {
     .then(function loginSuccess(user) {
         // Conditional if else statement is used for a success(true) or null(false) response when searching the db
         if (user) {
-            // encode login as we did /create above
-            let token = jwt.sign( {id: user.id}, process.env.JWT_SECRET, {expiresIn: 60 * 60 * 24} );
+            // This is now decrypting and checking if the password matches the db password (password from request, password in db, comparing function)
+            bcrypt.compare(req.body.user.password, user.password, function(err, matches) {
+                // if else to run login, if match is successful then true will run 
+                if (matches) {
+                    // encode login as we did /create above
+                    let token = jwt.sign( {id: user.id}, process.env.JWT_SECRET, {expiresIn: 60 * 60 * 24} );
 
-            // gives a success status code as the response
-            res.status(200).json({
-                // returns user object upon login
-                user: user,
-                message: 'User successfully logged in!',
-                sessionToken: token
+                    // gives a success status code as the response
+                    res.status(200).json({
+                    // returns user object upon login
+                    user: user,
+                    // displays additional conformation string in console
+                    message: 'User successfully logged in!',
+                    // displays token as well
+                    sessionToken: token
+                    })
+                // fail case if password does not match
+                } else {
+                    // error message sent in console
+                    res.status(502).send({ error: 'Login failed'});
+                }
             })
+        // fail case if user is not located in db
         } else {
+            // error message sent in console
             res.status(500).json({ error: 'User does not exist.' })
         }
     })
-    // .catch for fail request case
+    // .catch for fail request case(request doesn't go through, etc.)
     .catch(err => res.status(500).json({ error: err }))
 });
 

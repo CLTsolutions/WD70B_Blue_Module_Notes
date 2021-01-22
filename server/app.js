@@ -25,6 +25,7 @@ app.use(express.json());
 
 // User Endpoint:
 // Call app.use() to create a base URL endpoint with /user, http://localhost:3000/user
+// Endpoints handle the server/client interactions, it's the path used to place a request from our client to our sever. The "/" and "user" create the endpoint path/route to ask the server for access to user information
 app.use('/user', user);
 
 
